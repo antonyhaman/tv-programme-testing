@@ -1,4 +1,4 @@
-package tvProgrammeTesting.utils.logger;
+package com.github.kotvertolet.tvprogrammetesting.utils.logger;
 
 import java.io.FileInputStream;
 import java.io.IOException;

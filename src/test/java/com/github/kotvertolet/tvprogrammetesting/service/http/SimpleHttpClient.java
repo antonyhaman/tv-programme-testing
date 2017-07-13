@@ -1,4 +1,4 @@
-package tvProgrammeTesting.service.http;
+package com.github.kotvertolet.tvprogrammetesting.service.http;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;

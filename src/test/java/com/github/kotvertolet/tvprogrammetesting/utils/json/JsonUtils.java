@@ -1,4 +1,4 @@
-package tvProgrammeTesting.utils.json;
+package com.github.kotvertolet.tvprogrammetesting.utils.json;
 
 import com.google.gson.*;
 

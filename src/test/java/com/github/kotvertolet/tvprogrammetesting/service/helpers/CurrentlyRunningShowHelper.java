@@ -1,10 +1,7 @@
-package tvProgrammeTesting.service.helpers;
+package com.github.kotvertolet.tvprogrammetesting.service.helpers;
 
 import org.testng.Assert;
-import tvProgrammeTesting.pojo.currentlyRunningShow.CurrentlyRunningShow;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.github.kotvertolet.tvprogrammetesting.pojo.currentlyRunningShow.CurrentlyRunningShow;
 
 
 public class CurrentlyRunningShowHelper {

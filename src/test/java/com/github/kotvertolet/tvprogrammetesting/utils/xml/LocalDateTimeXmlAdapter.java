@@ -1,4 +1,4 @@
-package tvProgrammeTesting.utils.xml;
+package com.github.kotvertolet.tvprogrammetesting.utils.xml;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.time.LocalDateTime;

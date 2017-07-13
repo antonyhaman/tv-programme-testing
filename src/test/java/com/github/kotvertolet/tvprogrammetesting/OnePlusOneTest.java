@@ -1,16 +1,16 @@
-package tvProgrammeTesting;
+package com.github.kotvertolet.tvprogrammetesting;
 
+import com.github.kotvertolet.tvprogrammetesting.pojo.currentlyRunningShow.CurrentlyRunningShow;
+import com.github.kotvertolet.tvprogrammetesting.pojo.channelProgramme.WeeklyChannelProgramme;
+import com.github.kotvertolet.tvprogrammetesting.service.helpers.CurrentlyRunningShowHelper;
+import com.github.kotvertolet.tvprogrammetesting.service.http.SimpleHttpClient;
+import com.github.kotvertolet.tvprogrammetesting.utils.http.HttpUtils;
+import com.github.kotvertolet.tvprogrammetesting.utils.json.JsonUtils;
+import com.github.kotvertolet.tvprogrammetesting.utils.logger.LoggerUtils;
+import com.github.kotvertolet.tvprogrammetesting.utils.xml.XmlUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import tvProgrammeTesting.pojo.currentlyRunningShow.CurrentlyRunningShow;
-import tvProgrammeTesting.pojo.weeklyChannelProgramme.ChannelProgramme;
-import tvProgrammeTesting.service.helpers.CurrentlyRunningShowHelper;
-import tvProgrammeTesting.service.http.SimpleHttpClient;
-import tvProgrammeTesting.utils.http.HttpUtils;
-import tvProgrammeTesting.utils.json.JsonUtils;
-import tvProgrammeTesting.utils.logger.LoggerUtils;
-import tvProgrammeTesting.utils.xml.XmlUtils;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -19,19 +19,19 @@ import java.util.stream.Collectors;
 
 import static org.testng.Assert.*;
 
-public class OnePlusOneTestSuite {
+public class OnePlusOneTest {
 
-    private Logger logger = LoggerUtils.getLogger(OnePlusOneTestSuite.class.getSimpleName());
+    private Logger logger = LoggerUtils.getLogger(OnePlusOneTest.class.getSimpleName());
     private SimpleHttpClient httpClient = new SimpleHttpClient();
-    private ChannelProgramme.Programme showInChannelProgramme;
+    private WeeklyChannelProgramme.Programme showInChannelProgramme;
     private CurrentlyRunningShow.Program onePlusOneCurrentlyRunningShow;
 
     @DataProvider(name = "channelPrograms")
     public Object[][] createTestData() {
         String onePlusOneProgrammeXml = HttpUtils.getResponseBodyString(
                 httpClient.get("http://www.vsetv.com/export/megogo/epg/3.xml"));
-        ChannelProgramme onePlusOneProgrammeData = XmlUtils.mapXmlOnObject(
-                XmlUtils.removeXmlDeclarationAndDocType(onePlusOneProgrammeXml), ChannelProgramme.class);
+        WeeklyChannelProgramme onePlusOneProgrammeData = XmlUtils.mapXmlOnObject(
+                XmlUtils.removeXmlDeclarationAndDocType(onePlusOneProgrammeXml), WeeklyChannelProgramme.class);
 
         String onePlusOneCurrentlyRunningShowJson =
                 HttpUtils.getResponseBodyString(httpClient.get("http://epg.megogo.net/channel/now?external_id=295"));
@@ -47,13 +47,13 @@ public class OnePlusOneTestSuite {
     }
 
     @Test(dataProvider = "channelPrograms")
-    public void checkOnePlusOneDataConsistency(ChannelProgramme onePlusOneProgramme, CurrentlyRunningShow onePlusOneCurrentlyRunningShowData) {
+    public void checkOnePlusOneDataConsistency(WeeklyChannelProgramme onePlusOneProgramme, CurrentlyRunningShow onePlusOneCurrentlyRunningShowData) {
         logger.log(Level.INFO, "CURRENTLY RUNNING SHOW LIST: " + onePlusOneCurrentlyRunningShowData.toString());
 
         onePlusOneCurrentlyRunningShow =
                 new CurrentlyRunningShowHelper(onePlusOneCurrentlyRunningShowData).getProgramData();
 
-        List<ChannelProgramme.Programme> filteredShowList = onePlusOneProgramme.getProgramme().stream()
+        List<WeeklyChannelProgramme.Programme> filteredShowList = onePlusOneProgramme.getProgramme().stream()
                 .filter(programme -> programme.getStart().equals(onePlusOneCurrentlyRunningShow.getStart())
                         && programme.getStop().equals(onePlusOneCurrentlyRunningShow.getEnd()))
                 .collect(Collectors.toList());
@@ -75,7 +75,7 @@ public class OnePlusOneTestSuite {
     }
 
     @Test(dependsOnMethods = {"checkOnePlusOneDataConsistency"}, dataProvider = "channelPrograms")
-    public void checkOnePlusOneCurrentlyRunningShow(ChannelProgramme onePlusOneProgramme, CurrentlyRunningShow.Program onePlusOneCurrentlyRunningShow) {
+    public void checkOnePlusOneCurrentlyRunningShow(WeeklyChannelProgramme onePlusOneProgramme, CurrentlyRunningShow onePlusOneCurrentlyRunningShowData) {
         assertEquals(onePlusOneCurrentlyRunningShow.getTitle(), showInChannelProgramme.getTitle().getValue(),
                 "Currently running show's Title is not as expected");
         assertEquals(onePlusOneCurrentlyRunningShow.getGenre().getId(), showInChannelProgramme.getGenreId(),

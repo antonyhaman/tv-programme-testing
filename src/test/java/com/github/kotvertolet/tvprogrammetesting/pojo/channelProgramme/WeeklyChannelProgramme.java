@@ -1,6 +1,6 @@
-package tvProgrammeTesting.pojo.weeklyChannelProgramme;
+package com.github.kotvertolet.tvprogrammetesting.pojo.channelProgramme;
 
-import tvProgrammeTesting.utils.xml.LocalDateTimeXmlAdapter;
+import com.github.kotvertolet.tvprogrammetesting.utils.xml.LocalDateTimeXmlAdapter;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -15,11 +15,11 @@ import java.util.List;
         "programme"
 })
 @XmlRootElement(name = "tv")
-public class ChannelProgramme {
+public class WeeklyChannelProgramme {
 
     @XmlElement(required = true)
-    private ChannelProgramme.Channel channel;
-    private List<ChannelProgramme.Programme> programme;
+    private WeeklyChannelProgramme.Channel channel;
+    private List<WeeklyChannelProgramme.Programme> programme;
     @XmlAttribute(name = "source-info-url")
     @XmlSchemaType(name = "anyURI")
     private String sourceInfoUrl;
@@ -29,13 +29,13 @@ public class ChannelProgramme {
     @XmlSchemaType(name = "anyURI")
     private String generatorInfoUrl;
 
-    public ChannelProgramme.Channel getChannel() {
+    public WeeklyChannelProgramme.Channel getChannel() {
         return channel;
     }
 
-    public List<ChannelProgramme.Programme> getProgramme() {
+    public List<WeeklyChannelProgramme.Programme> getProgramme() {
         if (programme == null) {
-            programme = new ArrayList<ChannelProgramme.Programme>();
+            programme = new ArrayList<WeeklyChannelProgramme.Programme>();
         }
         return this.programme;
     }
@@ -98,12 +98,12 @@ public class ChannelProgramme {
         @XmlSchemaType(name = "date")
         XMLGregorianCalendar date;
         @XmlElement(required = true)
-        ChannelProgramme.Programme.Title title;
+        WeeklyChannelProgramme.Programme.Title title;
         @XmlElement(required = true)
-        ChannelProgramme.Programme.Category category;
-        ChannelProgramme.Programme.Genre genre;
-        ChannelProgramme.Programme.Desc desc;
-        ChannelProgramme.Programme.Longdesc longdesc;
+        WeeklyChannelProgramme.Programme.Category category;
+        WeeklyChannelProgramme.Programme.Genre genre;
+        WeeklyChannelProgramme.Programme.Desc desc;
+        WeeklyChannelProgramme.Programme.Longdesc longdesc;
         @XmlElement(name = "season-num")
         Integer seasonNum;
         @XmlElement(name = "episode-num")
@@ -140,23 +140,23 @@ public class ChannelProgramme {
             return date;
         }
 
-        public ChannelProgramme.Programme.Title getTitle() {
+        public WeeklyChannelProgramme.Programme.Title getTitle() {
             return title;
         }
 
-        public ChannelProgramme.Programme.Category getCategory() {
+        public WeeklyChannelProgramme.Programme.Category getCategory() {
             return category;
         }
 
-        public ChannelProgramme.Programme.Genre getGenre() {
+        public WeeklyChannelProgramme.Programme.Genre getGenre() {
             return genre;
         }
 
-        public ChannelProgramme.Programme.Desc getDesc() {
+        public WeeklyChannelProgramme.Programme.Desc getDesc() {
             return desc;
         }
 
-        public ChannelProgramme.Programme.Longdesc getLongdesc() {
+        public WeeklyChannelProgramme.Programme.Longdesc getLongdesc() {
             return longdesc;
         }
 

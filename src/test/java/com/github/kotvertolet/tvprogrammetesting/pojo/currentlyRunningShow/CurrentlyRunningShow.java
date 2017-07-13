@@ -1,4 +1,4 @@
-package tvProgrammeTesting.pojo.currentlyRunningShow;
+package com.github.kotvertolet.tvprogrammetesting.pojo.currentlyRunningShow;
 
 import com.google.gson.annotations.SerializedName;
 

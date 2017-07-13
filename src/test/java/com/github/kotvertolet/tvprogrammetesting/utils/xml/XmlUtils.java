@@ -1,4 +1,4 @@
-package tvProgrammeTesting.utils.xml;
+package com.github.kotvertolet.tvprogrammetesting.utils.xml;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
