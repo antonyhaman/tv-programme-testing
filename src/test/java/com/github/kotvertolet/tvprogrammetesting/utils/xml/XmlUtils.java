@@ -5,9 +5,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
 
-/**
- * Created by kotvertolet on 7/12/2017.
- */
 public class XmlUtils {
 
     public static <T> T mapXmlOnObject(String xml, Class<T> clazz) {

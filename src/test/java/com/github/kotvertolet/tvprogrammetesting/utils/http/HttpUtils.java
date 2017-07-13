@@ -5,9 +5,6 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
-/**
- * Created by kotvertolet on 7/13/2017.
- */
 public class HttpUtils {
 
     public static String getResponseBodyString(CloseableHttpResponse response) {
@@ -20,6 +17,12 @@ public class HttpUtils {
             body = EntityUtils.toString(response.getEntity(), responseEncoding);
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                response.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return body;
     }

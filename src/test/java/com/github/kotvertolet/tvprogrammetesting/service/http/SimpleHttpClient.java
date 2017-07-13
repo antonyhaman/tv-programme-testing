@@ -9,12 +9,7 @@ import java.io.IOException;
 
 public class SimpleHttpClient {
 
-    private CloseableHttpResponse response;
-
     public CloseableHttpResponse get(String uri) {
-        if (response != null) {
-            closeResponseStream();
-        }
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(uri);
         CloseableHttpResponse response;
@@ -23,16 +18,7 @@ public class SimpleHttpClient {
             return response;
         } catch (IOException e) {
             e.printStackTrace();
-            closeResponseStream();
-        }
-        return null;
-    }
-
-    private void closeResponseStream() {
-        try {
-            response.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            return null;
         }
     }
 }
