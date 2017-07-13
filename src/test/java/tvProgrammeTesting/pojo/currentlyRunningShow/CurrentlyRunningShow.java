@@ -1,8 +1,6 @@
 package tvProgrammeTesting.pojo.currentlyRunningShow;
 
 import com.google.gson.annotations.SerializedName;
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -221,20 +219,6 @@ public class CurrentlyRunningShow {
                     ", title='" + title + '\'' +
                     '}';
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (!(o instanceof CurrentlyRunningShow)) return false;
-
-        CurrentlyRunningShow example = (CurrentlyRunningShow) o;
-
-        return new EqualsBuilder()
-                .append(getResult(), example.getResult())
-                .append(getData(), example.getData())
-                .isEquals();
     }
 
     @Override

@@ -1,7 +1,5 @@
 package tvProgrammeTesting.pojo.weeklyChannelProgramme;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 import tvProgrammeTesting.utils.xml.LocalDateTimeXmlAdapter;
 
 import javax.xml.bind.annotation.*;
@@ -379,33 +377,5 @@ public class ChannelProgramme {
                     ", categoryId=" + categoryId +
                     '}';
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (!(o instanceof ChannelProgramme)) return false;
-
-        ChannelProgramme channelProgramme = (ChannelProgramme) o;
-
-        return new EqualsBuilder()
-                .append(getChannel(), channelProgramme.getChannel())
-                .append(getProgramme(), channelProgramme.getProgramme())
-                .append(getSourceInfoUrl(), channelProgramme.getSourceInfoUrl())
-                .append(getSourceInfoName(), channelProgramme.getSourceInfoName())
-                .append(getGeneratorInfoUrl(), channelProgramme.getGeneratorInfoUrl())
-                .isEquals();
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-                .append(getChannel())
-                .append(getProgramme())
-                .append(getSourceInfoUrl())
-                .append(getSourceInfoName())
-                .append(getGeneratorInfoUrl())
-                .toHashCode();
     }
 }
