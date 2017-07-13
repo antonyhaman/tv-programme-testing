@@ -66,21 +66,21 @@ public class OnePlusOneTestSuite {
                 "More than one show were found for the specified start/stop time in the channel programme");
 
         showInChannelProgramme = filteredShowList.get(0);
-        assertNotNull(showInChannelProgramme.getTitle(), "Show title in channel programme is null");
-        assertNotNull(showInChannelProgramme.getGenre(), "Show genre in channel programme is null");
-        assertNotNull(showInChannelProgramme.getProductionYear(), "Show year in channel programme is null");
-        assertNotNull(onePlusOneCurrentlyRunningShow.getTitle(), "Show title in currently running is null");
-        assertNotNull(onePlusOneCurrentlyRunningShow.getGenre(), "Show genre in currently running is null");
-        assertNotNull(onePlusOneCurrentlyRunningShow.getYear(), "Show year in currently running is null");
+        assertNotNull(showInChannelProgramme.getTitle(), "Show's Title in channel programme is null");
+        assertNotNull(showInChannelProgramme.getGenre(), "Show's Genre in channel programme is null");
+        assertNotNull(showInChannelProgramme.getProductionYear(), "Show's Year in channel programme is null");
+        assertNotNull(onePlusOneCurrentlyRunningShow.getTitle(), "Show's Title in currently running is null");
+        assertNotNull(onePlusOneCurrentlyRunningShow.getGenre(), "Show's Genre in currently running is null");
+        assertNotNull(onePlusOneCurrentlyRunningShow.getYear(), "Show's Year in currently running is null");
     }
 
     @Test(dependsOnMethods = {"checkOnePlusOneDataConsistency"}, dataProvider = "channelPrograms")
     public void checkOnePlusOneCurrentlyRunningShow(ChannelProgramme onePlusOneProgramme, CurrentlyRunningShow.Program onePlusOneCurrentlyRunningShow) {
         assertEquals(onePlusOneCurrentlyRunningShow.getTitle(), showInChannelProgramme.getTitle().getValue(),
-                "Currently running show title not as expected");
-        assertEquals(onePlusOneCurrentlyRunningShow.getGenre().getTitle(), showInChannelProgramme.getGenre().getValue(),
-                "Currently running show genre not as expected");
+                "Currently running show's Title is not as expected");
+        assertEquals(onePlusOneCurrentlyRunningShow.getGenre().getId(), showInChannelProgramme.getGenreId(),
+                "Currently running show's Genre_Id is not as expected");
         assertEquals(onePlusOneCurrentlyRunningShow.getYear(), showInChannelProgramme.getProductionYear(),
-                "Currently running show genre not as expected");
+                "Currently running show's Year is not as expected");
     }
 }

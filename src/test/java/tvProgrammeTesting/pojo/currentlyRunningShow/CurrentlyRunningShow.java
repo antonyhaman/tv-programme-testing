@@ -25,19 +25,19 @@ public class CurrentlyRunningShow {
     public class Data {
 
         @SerializedName("id")
-        private int id;
+        private Integer id;
         @SerializedName("external_id")
-        private int externalId;
+        private Integer externalId;
         @SerializedName("title")
         private String title;
         @SerializedName("programs")
         private List<CurrentlyRunningShow.Program> programs = null;
 
-        public int getId() {
+        public Integer getId() {
             return id;
         }
 
-        public int getExternalId() {
+        public Integer getExternalId() {
             return externalId;
         }
 
@@ -63,17 +63,17 @@ public class CurrentlyRunningShow {
     public class Genre {
 
         @SerializedName("id")
-        private int id;
+        private Integer id;
         @SerializedName("external_id")
-        private int externalId;
+        private Integer externalId;
         @SerializedName("title")
         private String title;
 
-        public int getId() {
+        public Integer getId() {
             return id;
         }
 
-        public int getExternalId() {
+        public Integer getExternalId() {
             return externalId;
         }
 
@@ -94,7 +94,7 @@ public class CurrentlyRunningShow {
     public class Program {
 
         @SerializedName("external_id")
-        private int externalId;
+        private Integer externalId;
         @SerializedName("object_id")
         private Object objectId;
         @SerializedName("year")
@@ -114,13 +114,13 @@ public class CurrentlyRunningShow {
         @SerializedName("start")
         private LocalDateTime start;
         @SerializedName("start_timestamp")
-        private int startTimestamp;
+        private Integer startTimestamp;
         @SerializedName("end")
         private LocalDateTime end;
         @SerializedName("end_timestamp")
-        private int endTimestamp;
+        private Integer endTimestamp;
 
-        public int getExternalId() {
+        public Integer getExternalId() {
             return externalId;
         }
 
@@ -160,7 +160,7 @@ public class CurrentlyRunningShow {
             return start;
         }
 
-        public int getStartTimestamp() {
+        public Integer getStartTimestamp() {
             return startTimestamp;
         }
 
@@ -168,7 +168,7 @@ public class CurrentlyRunningShow {
             return end;
         }
 
-        public int getEndTimestamp() {
+        public Integer getEndTimestamp() {
             return endTimestamp;
         }
 
@@ -195,17 +195,17 @@ public class CurrentlyRunningShow {
     public class Category {
 
         @SerializedName("id")
-        private int id;
+        private Integer id;
         @SerializedName("external_id")
-        private int externalId;
+        private Integer externalId;
         @SerializedName("title")
         private String title;
 
-        public int getId() {
+        public Integer getId() {
             return id;
         }
 
-        public int getExternalId() {
+        public Integer getExternalId() {
             return externalId;
         }
 
@@ -235,14 +235,6 @@ public class CurrentlyRunningShow {
                 .append(getResult(), example.getResult())
                 .append(getData(), example.getData())
                 .isEquals();
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-                .append(getResult())
-                .append(getData())
-                .toHashCode();
     }
 
     @Override

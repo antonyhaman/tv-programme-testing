@@ -63,13 +63,13 @@ public class ChannelProgramme {
         @XmlElement(name = "display-name", required = true)
         String displayName;
         @XmlAttribute(name = "id")
-        Byte id;
+        Integer id;
 
         public String getDisplayName() {
             return displayName;
         }
 
-        public Byte getId() {
+        public Integer getId() {
             return id;
         }
 
@@ -107,7 +107,7 @@ public class ChannelProgramme {
         ChannelProgramme.Programme.Desc desc;
         ChannelProgramme.Programme.Longdesc longdesc;
         @XmlElement(name = "season-num")
-        Byte seasonNum;
+        Integer seasonNum;
         @XmlElement(name = "episode-num")
         String episodeNum;
         @XmlElement(name = "production_year")
@@ -126,13 +126,13 @@ public class ChannelProgramme {
         @XmlAttribute(name = "stop")
         LocalDateTime stop;
         @XmlAttribute(name = "channel")
-        Byte channel;
+        Integer channel;
         @XmlAttribute(name = "genre_id")
-        Short genreId;
+        Integer genreId;
         @XmlAttribute(name = "programme_id")
         Integer programmeId;
         @XmlAttribute(name = "category_id")
-        Byte categoryId;
+        Integer categoryId;
 
         public long getId() {
             return id;
@@ -162,7 +162,7 @@ public class ChannelProgramme {
             return longdesc;
         }
 
-        public Byte getSeasonNum() {
+        public Integer getSeasonNum() {
             return seasonNum;
         }
 
@@ -198,11 +198,11 @@ public class ChannelProgramme {
             return stop;
         }
 
-        public Byte getChannel() {
+        public Integer getChannel() {
             return channel;
         }
 
-        public Short getGenreId() {
+        public Integer getGenreId() {
             return genreId;
         }
 
@@ -210,7 +210,7 @@ public class ChannelProgramme {
             return programmeId;
         }
 
-        public Byte getCategoryId() {
+        public Integer getCategoryId() {
             return categoryId;
         }
 
