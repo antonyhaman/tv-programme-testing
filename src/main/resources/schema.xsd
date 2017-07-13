@@ -1,0 +1,85 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="channelProgramme">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="channel">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="display-name"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="id"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="programme" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:long" name="id"/>
+                            <xs:element type="xs:date" name="date"/>
+                            <xs:element name="title">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="category">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="genre" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="desc" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="longdesc" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:byte" name="season-num" minOccurs="0"/>
+                            <xs:element type="xs:string" name="episode-num" minOccurs="0"/>
+                            <xs:element type="xs:string" name="production_year" minOccurs="0"/>
+                            <xs:element type="xs:anyURI" name="image" minOccurs="0"/>
+                            <xs:element type="xs:int" name="megogo_id" minOccurs="0"/>
+                            <xs:element type="xs:int" name="kinopoisk_id" minOccurs="0"/>
+                            <xs:element type="xs:string" name="parental" minOccurs="0"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="start" use="optional"/>
+                        <xs:attribute type="xs:string" name="stop" use="optional"/>
+                        <xs:attribute type="xs:byte" name="channel" use="optional"/>
+                        <xs:attribute type="xs:short" name="genre_id" use="optional"/>
+                        <xs:attribute type="xs:int" name="programme_id" use="optional"/>
+                        <xs:attribute type="xs:byte" name="category_id" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:anyURI" name="source-info-url"/>
+            <xs:attribute type="xs:string" name="source-info-name"/>
+            <xs:attribute type="xs:anyURI" name="generator-info-url"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
