@@ -1,4 +1,4 @@
-package com.github.kotvertolet.tvprogrammetesting.pojo.channelProgramme;
+package com.github.kotvertolet.tvprogrammetesting.pojo.xml;
 
 import com.github.kotvertolet.tvprogrammetesting.utils.xml.LocalDateTimeXmlAdapter;
 
@@ -8,6 +8,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -71,6 +72,27 @@ public class WeeklyChannelProgramme {
             return id;
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Channel)) return false;
+            Channel channel = (Channel) o;
+            return Objects.equals(getDisplayName(), channel.getDisplayName()) &&
+                    Objects.equals(getId(), channel.getId());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(getDisplayName(), getId());
+        }
+
+        @Override
+        public String toString() {
+            return "Channel{" +
+                    "displayName='" + displayName + '\'' +
+                    ", id=" + id +
+                    '}';
+        }
     }
 
     @XmlAccessorType(XmlAccessType.FIELD)
@@ -232,6 +254,20 @@ public class WeeklyChannelProgramme {
             }
 
             @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (!(o instanceof Category)) return false;
+                Category category = (Category) o;
+                return Objects.equals(getValue(), category.getValue()) &&
+                        Objects.equals(getLang(), category.getLang());
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(getValue(), getLang());
+            }
+
+            @Override
             public String toString() {
                 return "Category{" +
                         "value='" + value + '\'' +
@@ -257,6 +293,20 @@ public class WeeklyChannelProgramme {
 
             public String getLang() {
                 return lang;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (!(o instanceof Desc)) return false;
+                Desc desc = (Desc) o;
+                return Objects.equals(getValue(), desc.getValue()) &&
+                        Objects.equals(getLang(), desc.getLang());
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(getValue(), getLang());
             }
 
             @Override
@@ -288,6 +338,20 @@ public class WeeklyChannelProgramme {
             }
 
             @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (!(o instanceof Genre)) return false;
+                Genre genre = (Genre) o;
+                return Objects.equals(getValue(), genre.getValue()) &&
+                        Objects.equals(getLang(), genre.getLang());
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(getValue(), getLang());
+            }
+
+            @Override
             public String toString() {
                 return "Genre{" +
                         "value='" + value + '\'' +
@@ -313,6 +377,20 @@ public class WeeklyChannelProgramme {
 
             public String getLang() {
                 return lang;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (!(o instanceof Longdesc)) return false;
+                Longdesc longdesc = (Longdesc) o;
+                return Objects.equals(getValue(), longdesc.getValue()) &&
+                        Objects.equals(getLang(), longdesc.getLang());
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(getValue(), getLang());
             }
 
             @Override
@@ -344,12 +422,58 @@ public class WeeklyChannelProgramme {
             }
 
             @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (!(o instanceof Title)) return false;
+                Title title = (Title) o;
+                return Objects.equals(getValue(), title.getValue()) &&
+                        Objects.equals(getLang(), title.getLang());
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(getValue(), getLang());
+            }
+
+            @Override
             public String toString() {
                 return "Title{" +
                         "value='" + value + '\'' +
                         ", lang='" + lang + '\'' +
                         '}';
             }
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Programme)) return false;
+            Programme programme = (Programme) o;
+            return getId() == programme.getId() &&
+                    Objects.equals(getDate(), programme.getDate()) &&
+                    Objects.equals(getTitle(), programme.getTitle()) &&
+                    Objects.equals(getCategory(), programme.getCategory()) &&
+                    Objects.equals(getGenre(), programme.getGenre()) &&
+                    Objects.equals(getDesc(), programme.getDesc()) &&
+                    Objects.equals(getLongdesc(), programme.getLongdesc()) &&
+                    Objects.equals(getSeasonNum(), programme.getSeasonNum()) &&
+                    Objects.equals(getEpisodeNum(), programme.getEpisodeNum()) &&
+                    Objects.equals(getProductionYear(), programme.getProductionYear()) &&
+                    Objects.equals(getImage(), programme.getImage()) &&
+                    Objects.equals(getMegogoId(), programme.getMegogoId()) &&
+                    Objects.equals(getKinopoiskId(), programme.getKinopoiskId()) &&
+                    Objects.equals(getParental(), programme.getParental()) &&
+                    Objects.equals(getStart(), programme.getStart()) &&
+                    Objects.equals(getStop(), programme.getStop()) &&
+                    Objects.equals(getChannel(), programme.getChannel()) &&
+                    Objects.equals(getGenreId(), programme.getGenreId()) &&
+                    Objects.equals(getProgrammeId(), programme.getProgrammeId()) &&
+                    Objects.equals(getCategoryId(), programme.getCategoryId());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(getId(), getDate(), getTitle(), getCategory(), getGenre(), getDesc(), getLongdesc(), getSeasonNum(), getEpisodeNum(), getProductionYear(), getImage(), getMegogoId(), getKinopoiskId(), getParental(), getStart(), getStop(), getChannel(), getGenreId(), getProgrammeId(), getCategoryId());
         }
 
         @Override

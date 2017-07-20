@@ -1,7 +1,7 @@
 package com.github.kotvertolet.tvprogrammetesting.service.helpers;
 
 import org.testng.Assert;
-import com.github.kotvertolet.tvprogrammetesting.pojo.currentlyRunningShow.CurrentlyRunningShow;
+import com.github.kotvertolet.tvprogrammetesting.pojo.json.CurrentlyRunningShow;
 
 
 public class CurrentlyRunningShowHelper {

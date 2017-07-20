@@ -1,6 +1,7 @@
 package com.github.kotvertolet.tvprogrammetesting.utils.logger;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
@@ -22,21 +23,13 @@ public class LoggerUtils {
         return Logger.getLogger(name);
     }
 
-    public static void configure() {
-        InputStream is = null;
-        try {
-            is = new FileInputStream(PATH_TO_LOGGER_PROPERTIES);
+    private static void configure() {
+        try(InputStream is = new FileInputStream(PATH_TO_LOGGER_PROPERTIES)) {
             LogManager.getLogManager().readConfiguration(is);
-        } catch (IOException e) {
-            LOG.log(Level.WARNING, "Error while reading logger.properties", e);
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
         }
         isConfigured = true;
     }
-
 }

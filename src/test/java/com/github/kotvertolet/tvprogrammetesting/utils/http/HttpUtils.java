@@ -2,6 +2,7 @@ package com.github.kotvertolet.tvprogrammetesting.utils.http;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.testng.internal.thread.ThreadExecutionException;
 
 import java.io.IOException;
 

@@ -1,7 +1,7 @@
 package com.github.kotvertolet.tvprogrammetesting;
 
-import com.github.kotvertolet.tvprogrammetesting.pojo.currentlyRunningShow.CurrentlyRunningShow;
-import com.github.kotvertolet.tvprogrammetesting.pojo.channelProgramme.WeeklyChannelProgramme;
+import com.github.kotvertolet.tvprogrammetesting.pojo.json.CurrentlyRunningShow;
+import com.github.kotvertolet.tvprogrammetesting.pojo.xml.WeeklyChannelProgramme;
 import com.github.kotvertolet.tvprogrammetesting.service.helpers.CurrentlyRunningShowHelper;
 import com.github.kotvertolet.tvprogrammetesting.service.http.SimpleHttpClient;
 import com.github.kotvertolet.tvprogrammetesting.utils.http.HttpUtils;
